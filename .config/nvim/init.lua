@@ -1,0 +1,60 @@
+vim.g.mapleader = ' '
+vim.g.maplocalleader = ' '
+
+-- disable netrw at the very start of your init.lua
+vim.g.loaded_netrw = 1
+vim.g.loaded_netrwPlugin = 1
+
+-- optionally enable 24-bit colour
+vim.opt.termguicolors = true
+
+-- Set to true if you have a Nerd Font installed and selected in the terminal
+vim.g.have_nerd_font = true
+vim.opt.number = true
+vim.opt.ignorecase = true
+vim.opt.smartcase = true
+vim.opt.cursorline = true
+vim.opt.scrolloff = 10
+
+-- Plugins
+local vim = vim
+local Plug = vim.fn['plug#']
+
+vim.call('plug#begin')
+
+Plug('nvim-lua/plenary.nvim')
+Plug('nvim-telescope/telescope.nvim')
+Plug('nvim-treesitter/nvim-treesitter', { ['do'] = ':TSUpdate' })
+Plug('nvim-tree/nvim-tree.lua')
+
+vim.call('plug#end')
+
+local builtin = require('telescope.builtin')
+vim.keymap.set('n', '<leader>ff', builtin.find_files, { desc = 'Telescope find files' })
+vim.keymap.set('n', '<leader>fg', builtin.live_grep, { desc = 'Telescope live grep' })
+vim.keymap.set('n', '<leader>fb', builtin.buffers, { desc = 'Telescope buffers' })
+vim.keymap.set('n', '<leader>fh', builtin.help_tags, { desc = 'Telescope help tags' })
+
+
+-- Window focus mappings.
+local map = vim.api.nvim_set_keymap
+map('n', '<Home>h', '<C-w>h', { desc = 'Move focus to the left window' })
+map('n', '<Home>l', '<C-w>l', { desc = 'Move focus to the right window' })
+map('n', '<Home>j', '<C-w><C-j>', { desc = 'Move focus to the lower window' })
+map('n', '<Home>k', '<C-w><C-k>', { desc = 'Move focus to the upper window' })
+
+-- Toggle File tree
+map('n', '<leader>n', ':NvimTreeToggle<CR>', { noremap = true, silent = true })
+
+-- Nvim tree config 
+require("nvim-tree").setup({
+  sort = {
+    sorter = "case_sensitive",
+  },
+  view = {
+    width = 30,
+  },
+  renderer = {
+    group_empty = true,
+  },
+})
