@@ -29,21 +29,22 @@ Plug('nvim-tree/nvim-tree.lua')
 
 vim.call('plug#end')
 
+-- Telescope mappings.
+local map = vim.keymap.set
 local builtin = require('telescope.builtin')
-vim.keymap.set('n', '<leader>ff', builtin.find_files, { desc = 'Telescope find files' })
-vim.keymap.set('n', '<leader>fg', builtin.live_grep, { desc = 'Telescope live grep' })
-vim.keymap.set('n', '<leader>fb', builtin.buffers, { desc = 'Telescope buffers' })
-vim.keymap.set('n', '<leader>fh', builtin.help_tags, { desc = 'Telescope help tags' })
+map('n', '<leader>ff', builtin.find_files, { desc = 'Telescope find files' })
+map('n', '<leader>fg', builtin.live_grep, { desc = 'Telescope live grep' })
+map('n', '<leader>fb', builtin.buffers, { desc = 'Telescope buffers' })
+map('n', '<leader>fh', builtin.help_tags, { desc = 'Telescope help tags' })
 
 
 -- Window focus mappings.
-local map = vim.api.nvim_set_keymap
 map('n', '<Home>h', '<C-w>h', { desc = 'Move focus to the left window' })
 map('n', '<Home>l', '<C-w>l', { desc = 'Move focus to the right window' })
 map('n', '<Home>j', '<C-w><C-j>', { desc = 'Move focus to the lower window' })
 map('n', '<Home>k', '<C-w><C-k>', { desc = 'Move focus to the upper window' })
 
--- Toggle File tree
+-- Toggle File tree.
 map('n', '<leader>n', ':NvimTreeToggle<CR>', { noremap = true, silent = true })
 
 -- Nvim tree config 
@@ -58,3 +59,5 @@ require("nvim-tree").setup({
     group_empty = true,
   },
 })
+
+vim.cmd('silent! colorscheme murphy')
