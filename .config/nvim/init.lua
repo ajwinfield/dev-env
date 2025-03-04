@@ -5,6 +5,10 @@ vim.g.maplocalleader = ' '
 vim.g.loaded_netrw = 1
 vim.g.loaded_netrwPlugin = 1
 
+-- set tab spacing 
+vim.opt.tabstop = 4
+vim.opt.shiftwidth = 4
+
 -- optionally enable 24-bit colour
 vim.opt.termguicolors = true
 
@@ -39,15 +43,15 @@ map('n', '<leader>fh', builtin.help_tags, { desc = 'Telescope help tags' })
 
 
 -- Window focus mappings.
-map('n', '<Home>h', '<C-w>h', { desc = 'Move focus to the left window' })
-map('n', '<Home>l', '<C-w>l', { desc = 'Move focus to the right window' })
-map('n', '<Home>j', '<C-w><C-j>', { desc = 'Move focus to the lower window' })
-map('n', '<Home>k', '<C-w><C-k>', { desc = 'Move focus to the upper window' })
+map('n', '<leader>h', '<C-w>h', { desc = 'Move focus to the left window' })
+map('n', '<leader>l', '<C-w>l', { desc = 'Move focus to the right window' })
+map('n', '<leader>j', '<C-w><C-j>', { desc = 'Move focus to the lower window' })
+map('n', '<leader>k', '<C-w><C-k>', { desc = 'Move focus to the upper window' })
 
 -- Toggle File tree.
 map('n', '<leader>n', ':NvimTreeToggle<CR>', { noremap = true, silent = true })
 
--- Nvim tree config 
+-- Nvim tree config. 
 require("nvim-tree").setup({
   sort = {
     sorter = "case_sensitive",
@@ -60,4 +64,5 @@ require("nvim-tree").setup({
   },
 })
 
+-- Colorscheme.
 vim.cmd('silent! colorscheme murphy')

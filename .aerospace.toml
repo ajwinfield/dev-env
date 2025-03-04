@@ -33,20 +33,19 @@ automatically-unhide-macos-hidden-apps = true
     # See: https://nikitabobko.github.io/AeroSpace/commands#focus
     alt-j = 'focus down'
     alt-k = 'focus up'
-    alt-h = 'focus-monitor left'
-    alt-l = 'focus-monitor right'
+    alt-h = 'focus left'
+    alt-l = 'focus right'
 
     # See: https://nikitabobko.github.io/AeroSpace/commands#move
     alt-cmd-j = 'move down'
     alt-cmd-k = 'move up'
-
-    # For single monitor setup uncomment following lines
-    # alt-cmd-h = "move left"
-    # alt-cmd-l = "move right"
+    alt-cmd-h = "move left"
+    alt-cmd-l = "move right"
 
     # For dual monitor setup uncomment following lines
-    # alt-cmd-h = "move-node-to-monitor prev --focus-follows-window"
-    # alt-cmd-l = "move-node-to-monitor next --focus-follows-window"
+    alt-1 = "move-node-to-monitor 1 --focus-follows-window"
+    alt-2 = "move-node-to-monitor 2 --focus-follows-window"
+    alt-tab = "focus-monitor next --wrap-around" 
 
     alt-minus = 'resize smart -50'
     alt-equal = 'resize smart +50'
